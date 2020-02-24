@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Paddle.gd" type="Script" id=2]
@@ -6,6 +6,9 @@
 [ext_resource path="res://Scripts/Score.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Lives.gd" type="Script" id=5]
 [ext_resource path="res://Scripts/Starting.gd" type="Script" id=6]
+[ext_resource path="res://Assets/background.jpg" type="Texture" id=7]
+[ext_resource path="res://Assets/happy.wav" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/Ball.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72, 16 )
@@ -19,6 +22,7 @@ current = true
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
 position = Vector2( 544, 552 )
+scale = Vector2( 0.8, 0.8 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -29,6 +33,7 @@ margin_left = -72.0
 margin_top = -16.0
 margin_right = 72.0
 margin_bottom = 16.0
+color = Color( 0, 1, 1, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
 shape = SubResource( 1 )
@@ -43,161 +48,211 @@ polygon = PoolVector2Array( 0, 632, 0, 0, 1024, 0, 1024, 632, 1064, 632, 1064, -
 [node name="Tile Row 1" type="Node2D" parent="Tiles"]
 
 [node name="Tile" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 184, 296 )
 
 [node name="Tile2" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.988235, 0.270588, 0.270588, 1 )
 position = Vector2( 256, 296 )
 
 [node name="Tile3" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.996078, 0.290196, 0.0117647, 1 )
 position = Vector2( 328, 296 )
 
 [node name="Tile4" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.988235, 0.54902, 0.227451, 1 )
 position = Vector2( 400, 296 )
 
 [node name="Tile5" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.964706, 0.72549, 0.313726, 1 )
 position = Vector2( 472, 296 )
 
 [node name="Tile6" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.92549, 0.972549, 0.113725, 1 )
 position = Vector2( 544, 296 )
 
 [node name="Tile7" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.615686, 0.972549, 0.184314, 1 )
 position = Vector2( 616, 296 )
 
 [node name="Tile8" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.101961, 0.972549, 0.788235, 1 )
 position = Vector2( 688, 296 )
 
 [node name="Tile9" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.0862745, 0.709804, 0.980392, 1 )
 position = Vector2( 760, 296 )
 
 [node name="Tile10" parent="Tiles/Tile Row 1" instance=ExtResource( 3 )]
+modulate = Color( 0.133333, 0.164706, 0.952941, 1 )
 position = Vector2( 832, 296 )
 
 [node name="Tile Row 2" type="Node2D" parent="Tiles"]
 
 [node name="Tile" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.466667, 0.117647, 0.976471, 1 )
 position = Vector2( 184, 256 )
 
 [node name="Tile2" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.894118, 0.0980392, 0.984314, 1 )
 position = Vector2( 256, 256 )
 
 [node name="Tile3" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.996078, 0.235294, 0.964706, 1 )
 position = Vector2( 328, 256 )
 
 [node name="Tile4" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 1, 0, 0, 1 )
 position = Vector2( 400, 256 )
 
 [node name="Tile5" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.945098, 0.427451, 0.247059, 1 )
 position = Vector2( 472, 256 )
 
 [node name="Tile6" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.988235, 0.713726, 0.282353, 1 )
 position = Vector2( 544, 256 )
 
 [node name="Tile7" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.933333, 0.886275, 0.384314, 1 )
 position = Vector2( 616, 256 )
 
 [node name="Tile8" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.968627, 0.94902, 0.435294, 1 )
 position = Vector2( 688, 256 )
 
 [node name="Tile9" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.588235, 0.972549, 0.235294, 1 )
 position = Vector2( 760, 256 )
 
 [node name="Tile10" parent="Tiles/Tile Row 2" instance=ExtResource( 3 )]
+modulate = Color( 0.396078, 0.890196, 0.215686, 1 )
 position = Vector2( 832, 256 )
 
 [node name="Tile Row 3" type="Node2D" parent="Tiles"]
 
 [node name="Tile" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.137255, 0.658824, 0.0627451, 1 )
 position = Vector2( 184, 216 )
 
 [node name="Tile2" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.415686, 0.968627, 0.737255, 1 )
 position = Vector2( 256, 216 )
 
 [node name="Tile3" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.0784314, 0.960784, 0.54902, 1 )
 position = Vector2( 328, 216 )
 
 [node name="Tile4" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.0509804, 0.980392, 0.913725, 1 )
 position = Vector2( 400, 216 )
 
 [node name="Tile5" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.219608, 0.686275, 0.968627, 1 )
 position = Vector2( 472, 216 )
 
 [node name="Tile6" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.14902, 0.415686, 0.611765, 1 )
 position = Vector2( 544, 216 )
 
 [node name="Tile7" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.121569, 0.286275, 0.921569, 1 )
 position = Vector2( 616, 216 )
 
 [node name="Tile8" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.619608, 0.494118, 0.972549, 1 )
 position = Vector2( 688, 216 )
 
 [node name="Tile9" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.65098, 0.172549, 0.976471, 1 )
 position = Vector2( 760, 216 )
 
 [node name="Tile10" parent="Tiles/Tile Row 3" instance=ExtResource( 3 )]
+modulate = Color( 0.933333, 0.419608, 0.94902, 1 )
 position = Vector2( 832, 216 )
 
 [node name="Tile Row 4" type="Node2D" parent="Tiles"]
 
 [node name="Tile" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.937255, 0.737255, 0.960784, 1 )
 position = Vector2( 184, 176 )
 
 [node name="Tile2" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.972549, 0.537255, 0.913725, 1 )
 position = Vector2( 256, 176 )
 
 [node name="Tile3" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.945098, 0.356863, 0.356863, 1 )
 position = Vector2( 328, 176 )
 
 [node name="Tile4" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.890196, 0.592157, 0.592157, 1 )
 position = Vector2( 400, 176 )
 
 [node name="Tile5" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.862745, 0.47451, 0.215686, 1 )
 position = Vector2( 472, 176 )
 
 [node name="Tile6" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.921569, 0.717647, 0.517647, 1 )
 position = Vector2( 544, 176 )
 
 [node name="Tile7" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.945098, 0.921569, 0.333333, 1 )
 position = Vector2( 616, 176 )
 
 [node name="Tile8" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.878431, 0.890196, 0.513726, 1 )
 position = Vector2( 688, 176 )
 
 [node name="Tile9" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.615686, 0.960784, 0.301961, 1 )
 position = Vector2( 760, 176 )
 
 [node name="Tile10" parent="Tiles/Tile Row 4" instance=ExtResource( 3 )]
+modulate = Color( 0.196078, 0.929412, 0.0705882, 1 )
 position = Vector2( 832, 176 )
 
 [node name="Tile Row 5" type="Node2D" parent="Tiles"]
 
 [node name="Tile" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.313726, 0.909804, 0.572549, 1 )
 position = Vector2( 184, 136 )
 
 [node name="Tile2" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.415686, 0.796078, 0.447059, 1 )
 position = Vector2( 256, 136 )
 
 [node name="Tile3" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.490196, 0.866667, 0.654902, 1 )
 position = Vector2( 328, 136 )
 
 [node name="Tile4" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.482353, 0.917647, 0.886275, 1 )
 position = Vector2( 400, 136 )
 
 [node name="Tile5" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.443137, 0.635294, 0.858824, 1 )
 position = Vector2( 472, 136 )
 
 [node name="Tile6" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.219608, 0.227451, 0.768627, 1 )
 position = Vector2( 544, 136 )
 
 [node name="Tile7" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.258824, 0.180392, 0.713726, 1 )
 position = Vector2( 616, 136 )
 
 [node name="Tile8" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.6, 0.180392, 0.752941, 1 )
 position = Vector2( 688, 136 )
 
 [node name="Tile9" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.741176, 0.121569, 0.870588, 1 )
 position = Vector2( 760, 136 )
 
 [node name="Tile10" parent="Tiles/Tile Row 5" instance=ExtResource( 3 )]
+modulate = Color( 0.878431, 0.329412, 0.831373, 1 )
 position = Vector2( 832, 136 )
 
 [node name="Score" type="Label" parent="."]
@@ -225,4 +280,23 @@ script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="Starting"]
 wait_time = 10.0
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="Background"]
+self_modulate = Color( 1, 1, 1, 0.368627 )
+show_behind_parent = true
+light_mask = 524288
+position = Vector2( 521.149, 304.488 )
+scale = Vector2( 2.37833, 1.90881 )
+texture = ExtResource( 7 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource( 8 )
+volume_db = 5.0
+autoplay = true
+
+[node name="Ball" parent="." instance=ExtResource( 9 )]
 [connection signal="timeout" from="Starting/Timer" to="Starting" method="_on_Timer_timeout"]
