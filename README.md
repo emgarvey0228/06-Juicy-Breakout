@@ -12,6 +12,7 @@ I added these features to my game to make it jucier:
 - Changed the size of the paddle to increase difficulty
 - Added a texture/ background image into the Win Scene 
 - Added music in the Win Scene
+- Added another button option in the Win Scene
 - Created an "End Scene" after the user chooses not to play again
 
 
