@@ -15,3 +15,11 @@ autoplay = true
 position = Vector2( 511, 298.5 )
 scale = Vector2( 2.052, 1.18812 )
 texture = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 454.0
+margin_top = 460.0
+margin_right = 582.0
+margin_bottom = 497.0
+text = "PLAY AGAIN"
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
