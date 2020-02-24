@@ -22,7 +22,7 @@ current = true
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
 position = Vector2( 544, 552 )
-scale = Vector2( 0.8, 0.8 )
+scale = Vector2( 0.7, 0.7 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
