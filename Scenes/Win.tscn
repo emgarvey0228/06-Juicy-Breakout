@@ -31,5 +31,5 @@ texture = ExtResource( 2 )
 stream = ExtResource( 3 )
 autoplay = true
 [connection signal="pressed" from="YES" to="." method="_on_Button_pressed"]
-[connection signal="pressed" from="NO" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="NO" to="." method="_on_NO_pressed"]
 [connection signal="toggled" from="NO" to="." method="_on_NO_toggled"]
