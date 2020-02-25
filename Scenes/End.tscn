@@ -1,6 +1,4 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/game_over_bad_chest.wav" type="AudioStream" id=1]
+[gd_scene format=2]
 
 [node name="End" type="Node2D"]
 
@@ -15,6 +13,3 @@ margin_bottom = 608.0
 text = "BYE!"
 align = 1
 valign = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 1 )
