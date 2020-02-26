@@ -13,7 +13,10 @@ I added these features to my game to make it jucier:
 - Added a texture/ background image into the Win Scene 
 - Added music in the Win Scene
 - Added another button option in the Win Scene
+- Changed the buttons label to yes in the Win Scene instead of it saying: play again? 
 - Created an "End Scene" after the user chooses not to play again
+- Added 2D Particles to the ball
+- Set uppercase to both labels
 
 
 
