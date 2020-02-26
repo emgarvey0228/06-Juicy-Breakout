@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Paddle.gd" type="Script" id=2]
@@ -12,6 +12,25 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 72, 16 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.1656 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 6, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 2.0
+scale = 12.0
+scale_random = 1.0
+scale_curve = SubResource( 3 )
+color = Color( 0.905882, 0.45098, 0.968627, 0.615686 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -261,6 +280,7 @@ margin_top = 16.0
 margin_right = 112.0
 margin_bottom = 30.0
 text = "Score: "
+uppercase = true
 script = ExtResource( 4 )
 
 [node name="Lives" type="Label" parent="."]
@@ -269,9 +289,11 @@ margin_top = 16.0
 margin_right = 1006.0
 margin_bottom = 30.0
 text = "Lives:"
+uppercase = true
 script = ExtResource( 5 )
 
 [node name="Starting" type="Label" parent="."]
+editor/display_folded = true
 margin_right = 1024.0
 margin_bottom = 112.0
 align = 1
@@ -292,6 +314,7 @@ scale = Vector2( 2.37833, 1.90881 )
 texture = ExtResource( 7 )
 
 [node name="Node2D" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource( 8 )
@@ -299,4 +322,10 @@ volume_db = 5.0
 autoplay = true
 
 [node name="Ball" parent="." instance=ExtResource( 9 )]
+editor/display_folded = false
+
+[node name="Particles2D" type="Particles2D" parent="Ball"]
+show_behind_parent = true
+amount = 30
+process_material = SubResource( 4 )
 [connection signal="timeout" from="Starting/Timer" to="Starting" method="_on_Timer_timeout"]
